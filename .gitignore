@@ -1,0 +1,5 @@
+*.so
+*.o
+.build/
+.build_test/
+unit_tests
