@@ -25,3 +25,4 @@
     void generated_test_##func_name##_##test_name(func_name##_t func)
 
 typedef void *(*memset_t)(void *dest, int chr, size_t count);
+typedef char *(*strrchr_t)(char *str, int searchedChar);
