@@ -4,5 +4,6 @@
       nasm
       gnumake
       criterion
+      gdb
     ];
 }
