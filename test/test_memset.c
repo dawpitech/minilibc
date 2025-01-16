@@ -10,7 +10,7 @@ TestSharedLibrary(memset, five_zero_bytes) {
 
     char expected[size];
     memset(expected, value, size);
-    cr_assert_arrays_eq(buff, expected, size);
+    cr_assert_arr_eq(buff, expected, size);
 }
 
 TestSharedLibrary(memset, ten_chr_bytes) {
@@ -22,5 +22,5 @@ TestSharedLibrary(memset, ten_chr_bytes) {
 
     char expected[size];
     memset(expected, value, size);
-    cr_assert_arrays_eq(buff, expected, size);
+    cr_assert_arr_eq(buff, expected, size);
 }
