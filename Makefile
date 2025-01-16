@@ -41,10 +41,10 @@ $(NAME): $(OBJ)
 
 $(TEST_NAME): LDFLAGS += -lcriterion
 $(TEST_NAME): $(TEST_OBJ)
-	$(CC) $(LDFLAGS) $(CFLAGS) $< -o $@
+	$(CC) $(LDFLAGS) $(CFLAGS) -o $@ $^
 
 tests_run: $(TEST_NAME) $(NAME)
-	@-./$<
+	@-./$< --verbose
 
 clean:
 	@ rm -rf $(BUILD_DIR)
