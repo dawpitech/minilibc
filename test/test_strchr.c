@@ -28,8 +28,6 @@ Test(strchr, not_in_str) {
 
     char *str = "Hello World!";
     char searched = 'o';
-    printf("%s", func(str, searched));
-    printf("%s", strchr(str, searched));
     cr_assert_eq(strchr(str, searched), func(str, searched));
 
     dlclose(handle);
