@@ -13,5 +13,6 @@ strlen:
 
     INC rax
     JMP .loop
+
 .end:
     RET

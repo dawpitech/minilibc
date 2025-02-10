@@ -5,5 +5,6 @@
       gnumake
       criterion
       gdb
+      man-pages
     ];
 }
