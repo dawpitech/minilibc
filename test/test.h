@@ -28,3 +28,4 @@ typedef void *(*memset_t)(void *dest, int chr, size_t count);
 typedef char *(*strrchr_t)(char *str, int searchedChar);
 typedef void *(*memcpy_t)(void *dest, void *src, size_t n);
 typedef void *(*strcmp_t)(const char* s1, const char* s2);
+typedef void *(*strncmp_t)(const char* s1, const char* s2, size_t n);
