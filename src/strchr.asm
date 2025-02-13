@@ -9,11 +9,11 @@ strchr:
     XOR rdx, rdx
 
 .loop:
-    CMP BYTE [rdi + rdx], 0
-    JZ .notfound
-
     CMP BYTE [rdi + rdx], sil
     JZ .found
+
+    CMP BYTE [rdi + rdx], 0
+    JZ .notfound
 
     INC rdx
     JMP .loop
