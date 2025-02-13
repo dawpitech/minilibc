@@ -33,7 +33,7 @@ $(BUILD_DIR)/%.o: %.asm
 
 $(TEST_BUILD_DIR)/%.o: %.c
 	@ mkdir -p $(dir $@)
-	$(CC) $(LDFLAGS) $(CFLAG) -c $< -o $@
+	$(CC) $(LDFLAGS) $(CFLAGS) -c $< -o $@
 
 $(NAME): LDFLAGS += -shared
 $(NAME): $(OBJ)
