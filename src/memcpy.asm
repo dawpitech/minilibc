@@ -14,8 +14,8 @@ memcpy:
     CMP rcx, rdx
     JE .end
 
-    MOV dh, BYTE [rsi + rcx]
-    MOV BYTE [rdi + rcx], dh
+    MOV r8b, BYTE [rsi + rcx]
+    MOV BYTE [rdi + rcx], r8b
     INC rcx
     JMP .loop
 
