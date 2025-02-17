@@ -31,3 +31,4 @@ typedef void *(*memcpy_t)(void *dest, void *src, size_t n);
 typedef int (*strcmp_t)(const char* s1, const char* s2);
 typedef int (*strncmp_t)(const char* s1, const char* s2, size_t n);
 typedef int (*strcasecmp_t)(const char *s1, const char *s2);
+typedef void *(*memmove_t)(void *dest, void *src, size_t n);
