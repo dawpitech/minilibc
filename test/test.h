@@ -34,3 +34,4 @@ typedef int (*strcasecmp_t)(const char *s1, const char *s2);
 typedef void *(*memmove_t)(void *dest, void *src, size_t n);
 typedef char *(*strstr_t)(char *haystack, char *needle);
 typedef char *(*strpbrk_t)(char *s, char *accept);
+typedef int (*strcspn_t)(char *s, char *reject);
