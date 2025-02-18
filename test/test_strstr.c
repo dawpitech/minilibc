@@ -24,7 +24,7 @@ TestSharedLibrary(strstr, not_found) {
     cr_assert_eq(strstr(haystack, needle), func(haystack, needle));
 }
 
-TestSharedLibrary(strstr, empyu) {
+TestSharedLibrary(strstr, empty) {
     char haystack[] = "Hello bob, how are you?";
     char needle[] = "";
 
