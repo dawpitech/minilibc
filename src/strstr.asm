@@ -4,8 +4,6 @@ section .text
 
 GLOBAL strstr
 
-EXTERN strncmp
-
 ;      rdi,    rsi
 ; haystack, needle
 
