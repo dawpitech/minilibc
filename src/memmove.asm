@@ -11,28 +11,33 @@ GLOBAL memmove
 ;  return: rax
 
 memmove:
-
-.buffer_in:
     XOR rcx, rcx
-    XOR r8, r8
 
-.loop_in:
+    CMP rdi, rsi
+    JA .cpy_right
+    JB .cpy_left_loop
+    JE .end
+
+.cpy_left_loop:
     CMP rcx, rdx
-    JE .buffer_out
+    JE .end
+
     MOV r8b, [rsi + rcx]
-    PUSH r8
-    INC rcx
-    JMP .loop_in
-
-.buffer_out:
-
-.loop_out:
-    CMP rcx, 0
-    JZ .end
-    DEC rcx
-    POP r8
     MOV [rdi + rcx], r8b
-    JMP .loop_out
+    INC rcx
+    JMP .cpy_left_loop
+
+.cpy_right:
+    MOV rcx, rdx
+
+.cpy_right_loop:
+    CMP rcx, 0
+    JE .end
+
+    MOV r8b, [rsi + rcx - 1]
+    MOV [rdi + rcx - 1], r8b
+    DEC rcx
+    JMP .cpy_right_loop
 
 .end:
     MOV rax, rdi

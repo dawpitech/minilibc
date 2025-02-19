@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "test.h"
 
@@ -48,11 +49,37 @@ TestSharedLibrary(memmove, overlap_end) {
     void* ret2 = func(dest2, src2, 8);
 
     cr_expect_eq(ret2, dest2);
-    //printf("%s\n", dest1);
-    //printf("%s\n", dest2);
-    //printf("%d\n", memcmp(dest1, dest2, 10));
-    //for (int i = 0; i < 10; i++)
-    //    printf("[%d]: %d-%d (%c-%c)\n", i, dest1[i], dest2[i], dest1[i], dest2[i]);
+    printf("%s\n", dest1);
+    printf("%s\n", dest2);
+    printf("%d\n", memcmp(dest1, dest2, 10));
+    for (int i = 0; i < 10; i++)
+        printf("[%d]: %d-%d (%c-%c)\n", i, dest1[i], dest2[i], dest1[i], dest2[i]);
 
     cr_assert_eq(memcmp(dest1, dest2, 8), 0);
+}
+
+TestSharedLibrary(memmove, move_zero_bytes) {
+    char src1[] = "1234567890";
+    char *dest1 = src1 + 2;
+    char src2[] = "1234567890";
+    char *dest2 = src2 + 2;
+
+    memmove(dest1, src1, 0);
+    void* ret2 = func(dest2, src2, 0);
+
+    cr_expect_eq(ret2, dest2);
+
+    cr_assert_eq(memcmp(dest1, dest2, 8), 0);
+}
+
+TestSharedLibrary(memmove, move_one_quantilion) {
+    char *src1 = malloc(10000200);
+    char *dest1 = src1 + 2;
+    char *src2 = malloc(10000200);
+    char *dest2 = src2 + 2;
+
+    memmove(dest1, src1, 10000000);
+    void* ret2 = func(dest2, src2, 10000000);
+
+    cr_assert_eq(ret2, dest2);
 }
